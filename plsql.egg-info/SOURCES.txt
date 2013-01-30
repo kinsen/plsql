@@ -1,0 +1,7 @@
+setup.py
+plsql/__init__.py
+plsql/plsql.py
+plsql.egg-info/PKG-INFO
+plsql.egg-info/SOURCES.txt
+plsql.egg-info/dependency_links.txt
+plsql.egg-info/top_level.txt

@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<ul class="breadcrumbs">
+	<li><a href="/">Home</a></li>
+	<li><a href="/command">SQL</a></li>
+	<li class="current"><a href="#">Add</a></li>
+</ul>
+<form action="{{request.path}}" method="post" class="custom">
+	{{ xsrf_form_html() }}
+	<p>
+		<lable>COMMAND NAME</lable>
+		<input type="text" name="name" id="name"></p>
+	<p>
+		<lable>COMMAND DESCRIPTION</lable>
+		<input type="text" name="description" id="description"></p>
+	<p>
+		<lable>CATALOG</lable>
+		<select name="catalogId" id="catalogId">
+			{% for catalog in catalogs%}
+			<option value="{{catalog.CatalogId}}">{{catalog.Name}}</option>
+			{%end%}
+		</select>
+	</p>
+	<p>
+		<lable>COMMAND TEXT</lable>
+		<textarea name="commandText" id="commandText" rows="10" cols="40"></textarea>
+	</p>
+	<p>
+		<lable>COMMAND PARAMETERS</lable>
+		<textarea name="parameters" id="parameters" rows="10" cols="40" placeholder="Format ParameterName:Description,ParameterName:Description"></textarea>
+	<p>
+		<input type="submit" value="Submit" class="button"></p>
+</form>
+{% end %}

@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<ul class="breadcrumbs">
+	<li><a href="/">Home</a></li>
+	<li><a href="/command">SQL</a></li>
+	<li class="current"><a href="#">View</a></li>
+</ul>
+<h2>{{command.Name}}</h2>
+<p>
+	<span class="label radius">CommandId</span>
+	{{command.CommandId}}
+</p>
+<p>
+	<span class="label radius">Name</span>
+	{{command.Name}}
+</p>
+<p>
+	<span class="label radius">Description</span>
+	{{command.Description}}
+</p>
+<p>
+	<span class="label radius">Catalog</span>
+	{{command.CatalogName}}
+</p>
+<p>
+	<span class="label radius">SQL Command Text</span>
+	{{command.CommandText}}
+</p>
+<p>
+	<span class="label radius">SQL Parameters</span>
+	{{command.Parameters}}
+</p>
+<p>
+	<span class="label radius">CreateTime</span>
+	{{command.CreateTime}}
+</p>
+{% end %}

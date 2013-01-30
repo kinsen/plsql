@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h2>Result</h2>
+<table class="twelve">
+	<thead>
+		<tr>
+			{%for desc in description%}
+			<th>{{desc}}</th>
+			{%end%}
+		</tr>
+	</thead>
+	<tbody>
+		{%for item in result%}
+		<tr>
+			{%for desc in description%}
+			{%if item.has_key(desc)%}
+			<td>{{item[desc]}}</td>
+			{%else%}
+			<td>{{desc}} not found</td>
+			{%end%}
+			{%end%}
+		</tr>
+		{%end%}
+	</tbody>
+</table>
+{% end %}

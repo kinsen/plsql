@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<ul class="breadcrumbs">
+	<li><a href="/">Home</a></li>
+	<li><a href="/command">SQL</a></li>
+	<li class="current"><a href="#">Execute</a></li>
+</ul>
+<h4>{{command.Name}}</h4>
+<form action="{{request.path}}" method="post">
+	{{ xsrf_form_html() }}
+	{% for parameter in command.Parameters.split(',')%}
+	{% if parameter %}
+	{% set name,desc=parameter.split(':',2)%}
+	<p>
+		<label>{{name}}:</label>
+		<input type="text" id="{{name}}" name="{{name}}" placeholder="{{desc}}" />
+	</p>
+	{%end%}
+	{% end%}
+	<p>
+		<input type="submit" value="Submit" class="button"></p>
+</form>
+{% end %}

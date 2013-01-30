@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<ul class="breadcrumbs">
+	<li><a href="/">Home</a></li>
+	<li class="current"><a href="#">Catalog</a></li>
+</ul>
+<p><a href="/catalog/add" class="button">Add Catalog</a></p>
+	<table class="twelve">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>Description</th>
+				<th>CreateTime</th>
+				<th>Function</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for catalog in catalogs%}
+			<tr>
+				<td>{{catalog.CatalogId}}</td>
+				<td><a href="/catalog/{{catalog.CatalogId}}/command">{{catalog.Name}}</a></td>
+				<td>{{catalog.Description}}</td>
+				<td>{{catalog.CreateTime}}</td>
+				<td>
+					<a href="/catalog/edit/{{catalog.CatalogId}}">Edit</a>
+				</td>
+			</tr>
+			{% end %}
+		</tbody>
+	</table>
+{% end %}

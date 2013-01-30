@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<ul class="breadcrumbs">
+	<li><a href="/">Home</a></li>
+	<li><a href="/catalog">Catalog</a></li>
+	<li class="current"><a href="#">Edit</a></li>
+</ul>
+	<form action="{{request.path}}" method="post">
+		{{ xsrf_form_html() }}
+		<p>
+			<lable>Catalog Name</lable>
+			<input type="text" name="name" id="name" value="{{catalog.Name}}">
+		</p>
+		<p>
+			<lable>Description</lable>
+			<input type="text" name="description" id="description" value="{{catalog.Description}}">
+		</p>
+		<p><input type="submit" value="submit" class="button"></p>
+	</form>
+{% end %}
