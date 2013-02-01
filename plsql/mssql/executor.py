@@ -9,6 +9,7 @@ class MSSQLExecutor():
 			user=mssql_settings["user"],
 			password=mssql_settings["password"],
 			database=mssql_settings["database"],
+			charset=mssql_settings["charset"],
 			as_dict=True)
 		return conn
 		
